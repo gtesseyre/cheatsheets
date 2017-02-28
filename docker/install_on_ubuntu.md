@@ -20,6 +20,10 @@ sudo apt-get update
 sudo apt-get -y install docker-engine
 ```
 
+#Verify it is running
+```
+sudo docker run hello-world
+```
 
 #Uninstall Docker 
 ```
