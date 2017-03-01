@@ -28,7 +28,7 @@ WatchedEvent state:SyncConnected type:None path:null
 [zk: localhost:2181(CONNECTED) 0]
 ```
 
-Browse through from the CLI : ls /xxx/yyy/zzz, for example : 
+Browse through from the CLI : `ls /xxx/yyy/zzz`, for example : 
 ```
 [zk: localhost:2181(CONNECTED) 12] ls /fq-name-to-uuid/
 
@@ -41,7 +41,7 @@ route_target:target:64512:8000000
 [...]
 ```
 
-Read content from the CLI : get /xxx/yyy/zzz, for example :
+Read content from the CLI : `get /xxx/yyy/zzz`, for example :
 ```
 [zk: localhost:2181(CONNECTED) 8] get /fq-name-to-uuid/virtual_network:default-domain:admin:admin_internal_net
 c1738c63-8d6a-4f35-8461-e0732f10b90e
