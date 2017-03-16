@@ -30,7 +30,7 @@ WatchedEvent state:SyncConnected type:None path:null
 
 Browse through from the CLI : `ls /xxx/yyy/zzz`, for example : 
 ```
-[zk: localhost:2181(CONNECTED) 12] ls /fq-name-to-uuid/
+[zk: localhost:2181(CONNECTED) 12] ls /fq-name-to-uuid
 
 route_target:target:64512:8000004
 config_node:default-global-system-config:node-5.domain.tld
