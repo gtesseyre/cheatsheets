@@ -9,9 +9,9 @@ python /opt/contrail/utils/provision_vgw_interface.py --oper create --interface 
 
 3. Configure NAT on the host to access ressources in the overlay 
 ```
-iptables -t nat -D POSTROUTING -o vhost0 -j MASQUERADE
-iptables -D FORWARD -i vgw-public -o vhost0 -j ACCEPT
-iptables -D FORWARD -i vhost0 -o vgw-public -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -t nat -A POSTROUTING -o vhost0 -j MASQUERADE
+iptables -A FORWARD -i vgw-public -o vhost0 -j ACCEPT
+iptables -A FORWARD -i vhost0 -o vgw-public -m state --state RELATED,ESTABLISHED -j ACCEPT
 ```
 
 4. Forward a specific port from the host IP to an IP in the overlay 
