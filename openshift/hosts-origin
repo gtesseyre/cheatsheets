@@ -1,0 +1,28 @@
+# Create an OSEv3 group that contains the masters and nodes groups
+[OSEv3:children]
+masters
+nodes
+etcd
+
+# Set variables common for all OSEv3 hosts
+[OSEv3:vars]
+ansible_ssh_user=root
+ansible_become=yes
+debug_level=2
+openshift_deployment_type=origin
+openshift_release=v1.5
+openshift_install_examples=true
+openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
+osm_cluster_network_cidr=10.128.0.0/14
+openshift_portal_net=172.30.0.0/16
+openshift_use_dnsmasq=False
+
+[masters]
+100.64.16.3 openshift_hostname=openshift-master 
+
+[etcd]
+100.64.16.3 openshift_hostname=openshift-master 
+
+[nodes]
+100.64.16.4 openshift_hostname=openshift-slave-1 
+100.64.16.5 openshift_hostname=openshift-slave-2 
