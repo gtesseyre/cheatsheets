@@ -1,0 +1,10 @@
+docker_registry: 10.84.34.155:5000
+docker_registry_insecure: True
+docker_install_method: package
+ansible_user: root
+ansible_become: false
+contrail_compute_mode: container
+os_release: redhat7
+contrail_version: 4.0.0.0-3057
+cloud_orchestrator: openshift
+vrouter_physical_interface: eth0
