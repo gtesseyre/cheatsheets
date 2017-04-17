@@ -23,9 +23,8 @@ reboot
 
 ###5. Install Ansible and clone the Openshift repo - On the master
 ```
-yum install python2-pip openssl-devel python-devel -y
-pip install --upgrade pip
-pip install -Iv ansible==2.2.0.0
+yum install python2-pip openssl-devel python-devel gcc python-cffi -y
+pip install ansible==2.2.0
 git clone https://github.com/openshift/openshift-ansible
 cd openshift-ansible/
 ```
@@ -63,7 +62,8 @@ cat <<EOF> inventory/byo/origin-prerequisites.yml
 EOF
 ```
 
-###7. Create a host file 
+###7. Create a host file
+```
 cat <<EOF> inventory/byo/hosts.origin
 # Create an OSEv3 group that contains the masters and nodes groups
 [OSEv3:children]
@@ -94,4 +94,39 @@ openshift_use_dnsmasq=False
 100.64.16.4 openshift_hostname=openshift-slave-1 
 100.64.16.5 openshift_hostname=openshift-slave-2 
 EOF
+```
 
+###8. Run the Ansible playbooks to install the prerequisites packages  
+```
+ansible-playbook -i inventory/byo/hosts.origin inventory/byo/origin-prerequisites.yml
+```
+
+###9. Run the Ansible playbooks to install Openshift - At that point Openshift should be installed :-) !
+```
+ansible-playbook -i inventory/byo/hosts.origin playbooks/byo/openshift_facts.yml
+ansible-playbook -i inventory/byo/hosts.origin playbooks/byo/config.yml
+```
+
+###10. Clone Contrail Ansible Repo 
+```
+cat <<EOF> playbooks/inventory/my-inventory/hosts
+[contrail-repo]
+100.64.16.3
+
+[contrail-controllers]
+100.64.16.3
+
+[contrail-analyticsdb]
+100.64.16.3
+
+[contrail-analytics]
+100.64.16.3
+
+[contrail-kubernetes]
+100.64.16.3
+
+[contrail-compute]
+100.64.16.4
+100.64.16.5
+EOF
+```
