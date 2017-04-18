@@ -9,7 +9,7 @@ etcd
 ansible_ssh_user=root
 ansible_become=yes
 debug_level=2
-openshift_deployment_type=origin
+deployment_type=origin
 openshift_release=v1.5
 openshift_install_examples=true
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
