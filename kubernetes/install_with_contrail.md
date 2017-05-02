@@ -192,6 +192,14 @@ systemctl enable kubelet && systemctl start kubelet
 ```
 
 ### 6. Run Applications 
+Load examples 
 ```
-TBD - Add examples
+git clone https://github.com/gtesseyre/kubernetes-demo.git
+cd kubernetes-demo
 ```
+Start a web application and the kubernetes dashboard
+```
+kubectl create -f default-pod-service/contrail-frontend.yaml
+kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+```
+And then edit the kubernetes dashboard service to configure a LoadBalancer so that the Kubernetes dashboard gets an External IP and is accessible from outside
