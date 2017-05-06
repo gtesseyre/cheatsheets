@@ -148,6 +148,13 @@ webui_config: {http_listen_port: 8085}
 # keystone_config: {ip: 192.168.0.23, admin_password: contrail123}
 EOF
 ```
+
+#### 4.2 - bis (if you don't have a container registry set up) Download the images in a folder on the ansible client 
+```
+mkdir container_images/
+copy Contrail containers .tgz images in this folder
+comment out the docker registry lines in inventory/my-inventory/group_vars/all.yml
+```
 #### 4.3 Run the Ansible playbook 
 ```
 ansible-playbook -i inventory/my-inventory site.yml
