@@ -30,7 +30,7 @@ cat /root/.ssh/id_rsa.pub | ssh <user>@<host-ip> 'cat >> .ssh/authorized_keys'
 ### 4. Install Contrail using Ansible provisionning (https://github.com/Juniper/contrail-ansible)
 #### 4.1 Get contrail-ansible
 ```
-git clone https://github.com/Juniper/contrail-ansible.git
+git clone -b R4.0 https://github.com/Juniper/contrail-ansible.git
 cd contrail-ansible/playbooks
 ```
 #### 4.2 Edit hosts and vars files
