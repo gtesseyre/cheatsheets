@@ -190,7 +190,7 @@ systemctl enable kubelet && systemctl start kubelet
 (on the master) kubeadm init
 (on the slaves) kubeadm join --token <token> <master-ip>:<master-port>
  
-(on the master) Enable the insecure-port value to 8080 in /etc/kubernetes/manifests/kube-apiserver.yaml
+(on the master) Enable the insecure-port value to 8080 and --insecure-bind-address=0.0.0.0 in /etc/kubernetes/manifests/kube-apiserver.yaml
 (on the master) service kubelet restart
 (on the master – for kubectl) cd $HOME
 (on the master – for kubectl) cp /etc/kubernetes/admin.conf $HOME/
